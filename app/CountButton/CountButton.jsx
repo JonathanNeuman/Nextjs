@@ -1,6 +1,13 @@
 import { useEffect,useState } from "react"
 export default function CountButton(props){
     const [count, setCount] = useState(0)
+
+    const buttonStyle = {
+        backgroundColor: props.color,
+        color: "white",
+        padding: "5rem",
+        borderRadius: "5px"
+    }
     function handleClick(){
         setCount(count + props.incrementBy)
     }
@@ -12,8 +19,8 @@ export default function CountButton(props){
     useEffect(rollOverCount,[count])
     return (
         <div>
-        <button onClick={handleClick}>+{props.incrementBy}</button>
-        <div>{count}</div>
+        <button style={buttonStyle} onClick={handleClick}>+{props.incrementBy}</button>
+        <div style={{fontFamily: "sans-serif", fontSize: "45px"}}>{count}</div>
         </div>
     )
 }
